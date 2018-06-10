@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,6 +52,9 @@
     <Compile Include="Models\Interfaces\IBookManagement.cs" />
     <Compile Include="Models\Interfaces\ISearch.cs" />
     <Compile Include="Models\Library.cs" />
+    <Compile Include="Models\BooksToXML.cs" />
+    <Compile Include="Presenters\AddBookPresenter.cs" />
+    <Compile Include="Presenters\MainPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\AddBook.cs">
@@ -67,6 +71,7 @@
     </Compile>
     <Compile Include="Views\Interfaces\IAddBook.cs" />
     <Compile Include="Views\Interfaces\IMainView.cs" />
+    <Compile Include="Views\Interfaces\IViewChanger.cs" />
     <Compile Include="Views\MainView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -82,6 +87,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\AddBook.resx">
+      <DependentUpon>AddBook.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\HomeLibraryForm.resx">
       <DependentUpon>HomeLibraryForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -101,9 +109,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Presenters\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

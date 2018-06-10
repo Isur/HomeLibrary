@@ -28,77 +28,111 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ColumnTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnPublisher = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnAuthor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.listViewBooks = new System.Windows.Forms.ListView();
+            this.columnTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnYear = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnAuthor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnPublisher = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.buttonSaveXML = new System.Windows.Forms.Button();
+            this.buttonAddBook = new System.Windows.Forms.Button();
+            this.buttonDeleteBook = new System.Windows.Forms.Button();
+            this.columnID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // listViewBooks
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnTitle,
-            this.ColumnYear,
-            this.ColumnPublisher,
-            this.ColumnAuthor});
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(448, 284);
-            this.dataGridView1.TabIndex = 0;
+            this.listViewBooks.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnID,
+            this.columnTitle,
+            this.columnYear,
+            this.columnAuthor,
+            this.columnPublisher});
+            this.listViewBooks.Location = new System.Drawing.Point(3, 3);
+            this.listViewBooks.Name = "listViewBooks";
+            this.listViewBooks.Size = new System.Drawing.Size(679, 191);
+            this.listViewBooks.TabIndex = 0;
+            this.listViewBooks.UseCompatibleStateImageBehavior = false;
+            this.listViewBooks.View = System.Windows.Forms.View.Details;
             // 
-            // ColumnTitle
+            // columnTitle
             // 
-            this.ColumnTitle.HeaderText = "Title";
-            this.ColumnTitle.Name = "ColumnTitle";
+            this.columnTitle.Text = "Tytuł";
+            this.columnTitle.Width = 135;
             // 
-            // ColumnYear
+            // columnYear
             // 
-            this.ColumnYear.HeaderText = "Year";
-            this.ColumnYear.Name = "ColumnYear";
+            this.columnYear.Text = "Rok";
+            this.columnYear.Width = 64;
             // 
-            // ColumnPublisher
+            // columnAuthor
             // 
-            this.ColumnPublisher.HeaderText = "Publisher";
-            this.ColumnPublisher.Name = "ColumnPublisher";
+            this.columnAuthor.Text = "Autor";
+            this.columnAuthor.Width = 217;
             // 
-            // ColumnAuthor
+            // columnPublisher
             // 
-            this.ColumnAuthor.HeaderText = "Author";
-            this.ColumnAuthor.Name = "ColumnAuthor";
+            this.columnPublisher.Text = "Wydawca";
+            this.columnPublisher.Width = 89;
             // 
-            // button1
+            // buttonSaveXML
             // 
-            this.button1.Location = new System.Drawing.Point(598, 112);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonSaveXML.Location = new System.Drawing.Point(4, 201);
+            this.buttonSaveXML.Name = "buttonSaveXML";
+            this.buttonSaveXML.Size = new System.Drawing.Size(75, 23);
+            this.buttonSaveXML.TabIndex = 1;
+            this.buttonSaveXML.Text = "SAVE";
+            this.buttonSaveXML.UseVisualStyleBackColor = true;
+            this.buttonSaveXML.Click += new System.EventHandler(this.buttonSaveXML_Click);
+            // 
+            // buttonAddBook
+            // 
+            this.buttonAddBook.Location = new System.Drawing.Point(86, 200);
+            this.buttonAddBook.Name = "buttonAddBook";
+            this.buttonAddBook.Size = new System.Drawing.Size(75, 23);
+            this.buttonAddBook.TabIndex = 2;
+            this.buttonAddBook.Text = "Dodaj";
+            this.buttonAddBook.UseVisualStyleBackColor = true;
+            this.buttonAddBook.Click += new System.EventHandler(this.buttonAddBook_Click);
+            // 
+            // buttonDeleteBook
+            // 
+            this.buttonDeleteBook.Location = new System.Drawing.Point(168, 199);
+            this.buttonDeleteBook.Name = "buttonDeleteBook";
+            this.buttonDeleteBook.Size = new System.Drawing.Size(75, 23);
+            this.buttonDeleteBook.TabIndex = 3;
+            this.buttonDeleteBook.Text = "Usuń";
+            this.buttonDeleteBook.UseVisualStyleBackColor = true;
+            this.buttonDeleteBook.Click += new System.EventHandler(this.buttonDeleteBook_Click);
+            // 
+            // columnID
+            // 
+            this.columnID.Text = "ID";
             // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.buttonDeleteBook);
+            this.Controls.Add(this.buttonAddBook);
+            this.Controls.Add(this.buttonSaveXML);
+            this.Controls.Add(this.listViewBooks);
             this.Name = "MainView";
-            this.Size = new System.Drawing.Size(793, 317);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Size = new System.Drawing.Size(685, 235);
+            this.Load += new System.EventHandler(this.MainView_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTitle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnYear;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPublisher;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnAuthor;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ListView listViewBooks;
+        private System.Windows.Forms.ColumnHeader columnTitle;
+        private System.Windows.Forms.ColumnHeader columnYear;
+        private System.Windows.Forms.ColumnHeader columnAuthor;
+        private System.Windows.Forms.ColumnHeader columnPublisher;
+        private System.Windows.Forms.Button buttonSaveXML;
+        private System.Windows.Forms.Button buttonAddBook;
+        private System.Windows.Forms.Button buttonDeleteBook;
+        private System.Windows.Forms.ColumnHeader columnID;
     }
 }

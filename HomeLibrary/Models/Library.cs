@@ -8,23 +8,29 @@ namespace HomeLibrary.Models
 {
     public class Library : IBookManagement, ISearch
     {
-        private List<Book> books;
+        public List<Book> Books { get; set; }
         public Library()
         {
-            books = new List<Book>();
+            Books = new List<Book>();
+            BooksToXML.Deserialize(this);
+            Books[0].setCounter((uint)Books.Count);
         }
         #region INTERFACES
-        public void AddBook(string title, string publisher, int year, string authorFirstName, string authorLastName, string authorFrom)
+        public bool AddBook(string title, string publisher, int year, string authorFirstName, string authorLastName, string authorFrom)
         {
-            books.Add(new Book(title, publisher, year, authorFirstName, authorLastName, authorFrom));
+            Books.Add(new Book(title, publisher, year, authorFirstName, authorLastName, authorFrom));
+            return true;
         }
-        public void AddBook(string title, string publisher, int year, Author author)
+        public bool AddBook(string title, string publisher, int year, Author author)
         {
-            books.Add(new Book(title, publisher, year, author));
+            Books.Add(new Book(title, publisher, year, author));
+            return true;
         }
-        public void DeleteBook(string title, string authorLastName)
+        public bool DeleteBook(uint id)
         {
-            throw new NotImplementedException();
+            var t = Books.Find(x => x.Id == id);
+            Books.Remove(t);
+            return true;
         }
         public List<Book> SearchByTitle(string title)
         {
@@ -44,6 +50,17 @@ namespace HomeLibrary.Models
         public List<Book> SearchByPublisher(string publisher)
         {
             throw new NotImplementedException();
+        }
+
+        public List<Book> GetBooks()
+        {
+            return Books;
+        }
+
+        public bool Save()
+        {
+            BooksToXML.Serialize(this);
+            return true;
         }
 
 

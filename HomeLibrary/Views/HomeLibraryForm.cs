@@ -1,4 +1,7 @@
-﻿using System;
+﻿using HomeLibrary.Models;
+using HomeLibrary.Presenters;
+using HomeLibrary.Views.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,26 +13,21 @@ using System.Windows.Forms;
 
 namespace HomeLibrary.Views
 {
-    public partial class HomeLibraryForm : Form
+    public partial class HomeLibraryForm : Form, IViewChanger
     {
         UserControl activeControl;
+        Library model;
         public HomeLibraryForm()
         {
             InitializeComponent();
-            
+            model = new Models.Library();
         }
 
         private void HomeLibraryForm_Load(object sender, EventArgs e)
         {
-            showMainView();
+            ShowMainView();
         }
 
-        private void showMainView()
-        {
-            var view = new MainView();
-            showView(view);
-            centerActualView();
-        }
 
         private void centerActualView()
         {
@@ -45,6 +43,22 @@ namespace HomeLibrary.Views
 
         private void HomeLibraryForm_Resize(object sender, EventArgs e)
         {
+            centerActualView();
+        }
+
+        public void ShowMainView()
+        {
+            var view = new MainView(this);
+            var presenter = new MainPresenter(model, view);
+            showView(view);
+            centerActualView();
+        }
+
+        public void ShowAddBookView()
+        {
+            var view = new AddBook(this);
+            var presenter = new AddBookPresenter(model, view);
+            showView(view);
             centerActualView();
         }
     }

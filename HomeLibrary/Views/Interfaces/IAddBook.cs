@@ -14,5 +14,9 @@ namespace HomeLibrary.Views.Interfaces
         string AuthorFirstName { get; set; }
         string AuthorLastName { get; set; }
         string AuthorFrom { get; set; }
+        /// <summary>
+        /// title, publisher, year, firstname, lastname, from
+        /// </summary>
+        event Func<string, string, int, string, string, string, bool> NewBook;
     }
 }
