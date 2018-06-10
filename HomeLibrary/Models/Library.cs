@@ -13,7 +13,7 @@ namespace HomeLibrary.Models
         {
             Books = new List<Book>();
             BooksToXML.Deserialize(this);
-            Books[0].setCounter((uint)Books.Count);
+            Books[0].setCounter(Books.Last<Book>().Id);
         }
         #region INTERFACES
         public bool AddBook(string title, string publisher, int year, string authorFirstName, string authorLastName, string authorFrom)

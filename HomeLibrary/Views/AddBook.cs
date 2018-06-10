@@ -120,7 +120,8 @@ namespace HomeLibrary.Views
         {
             if (validation())
             {
-                NewBook(Title, Publisher, Year, AuthorFirstName, AuthorLastName, AuthorFrom);
+                if (NewBook(Title, Publisher, Year, AuthorFirstName, AuthorLastName, AuthorFrom))
+                    viewChanger.ShowMainView();
             }
         }
         private bool validation()

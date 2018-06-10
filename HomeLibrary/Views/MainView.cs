@@ -22,6 +22,7 @@ namespace HomeLibrary.Views
             InitializeComponent();
             books = new List<Book>();
             this.viewChanger = viewChanger;
+            
         }
 
         public List<Book> Books
@@ -58,11 +59,8 @@ namespace HomeLibrary.Views
                 ListViewItem bookItem = new ListViewItem(bookInfo);
                 listViewBooks.Items.Add(bookItem);
             }
-        }
-
-        private void buttonSaveXML_Click(object sender, EventArgs e)
-        {
             Save();
+
         }
 
         private void buttonAddBook_Click(object sender, EventArgs e)
@@ -75,8 +73,14 @@ namespace HomeLibrary.Views
         {
             foreach (ListViewItem x in listViewBooks.SelectedItems)
             {
-                DeleteBook(uint.Parse(x.Text));
+                if (DeleteBook(uint.Parse(x.Text)))
+                    viewChanger.ShowMainView();
             }
+        }
+
+        private void textBoxSearchBar_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             this.listViewBooks = new System.Windows.Forms.ListView();
+            this.columnID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnYear = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnAuthor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnPublisher = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.buttonSaveXML = new System.Windows.Forms.Button();
             this.buttonAddBook = new System.Windows.Forms.Button();
             this.buttonDeleteBook = new System.Windows.Forms.Button();
-            this.columnID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.comboBoxSearch = new System.Windows.Forms.ComboBox();
+            this.textBoxSearchBar = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // listViewBooks
@@ -53,6 +54,10 @@
             this.listViewBooks.TabIndex = 0;
             this.listViewBooks.UseCompatibleStateImageBehavior = false;
             this.listViewBooks.View = System.Windows.Forms.View.Details;
+            // 
+            // columnID
+            // 
+            this.columnID.Text = "ID";
             // 
             // columnTitle
             // 
@@ -74,19 +79,9 @@
             this.columnPublisher.Text = "Wydawca";
             this.columnPublisher.Width = 89;
             // 
-            // buttonSaveXML
-            // 
-            this.buttonSaveXML.Location = new System.Drawing.Point(4, 201);
-            this.buttonSaveXML.Name = "buttonSaveXML";
-            this.buttonSaveXML.Size = new System.Drawing.Size(75, 23);
-            this.buttonSaveXML.TabIndex = 1;
-            this.buttonSaveXML.Text = "SAVE";
-            this.buttonSaveXML.UseVisualStyleBackColor = true;
-            this.buttonSaveXML.Click += new System.EventHandler(this.buttonSaveXML_Click);
-            // 
             // buttonAddBook
             // 
-            this.buttonAddBook.Location = new System.Drawing.Point(86, 200);
+            this.buttonAddBook.Location = new System.Drawing.Point(3, 199);
             this.buttonAddBook.Name = "buttonAddBook";
             this.buttonAddBook.Size = new System.Drawing.Size(75, 23);
             this.buttonAddBook.TabIndex = 2;
@@ -96,7 +91,7 @@
             // 
             // buttonDeleteBook
             // 
-            this.buttonDeleteBook.Location = new System.Drawing.Point(168, 199);
+            this.buttonDeleteBook.Location = new System.Drawing.Point(84, 200);
             this.buttonDeleteBook.Name = "buttonDeleteBook";
             this.buttonDeleteBook.Size = new System.Drawing.Size(75, 23);
             this.buttonDeleteBook.TabIndex = 3;
@@ -104,22 +99,41 @@
             this.buttonDeleteBook.UseVisualStyleBackColor = true;
             this.buttonDeleteBook.Click += new System.EventHandler(this.buttonDeleteBook_Click);
             // 
-            // columnID
+            // comboBoxSearch
             // 
-            this.columnID.Text = "ID";
+            this.comboBoxSearch.FormattingEnabled = true;
+            this.comboBoxSearch.Items.AddRange(new object[] {
+            "po autorze",
+            "po tytule",
+            "po roku",
+            "po wydawcy"});
+            this.comboBoxSearch.Location = new System.Drawing.Point(575, 202);
+            this.comboBoxSearch.Name = "comboBoxSearch";
+            this.comboBoxSearch.Size = new System.Drawing.Size(107, 21);
+            this.comboBoxSearch.TabIndex = 4;
+            // 
+            // textBoxSearchBar
+            // 
+            this.textBoxSearchBar.Location = new System.Drawing.Point(250, 203);
+            this.textBoxSearchBar.Name = "textBoxSearchBar";
+            this.textBoxSearchBar.Size = new System.Drawing.Size(319, 20);
+            this.textBoxSearchBar.TabIndex = 5;
+            this.textBoxSearchBar.TextChanged += new System.EventHandler(this.textBoxSearchBar_TextChanged);
             // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.textBoxSearchBar);
+            this.Controls.Add(this.comboBoxSearch);
             this.Controls.Add(this.buttonDeleteBook);
             this.Controls.Add(this.buttonAddBook);
-            this.Controls.Add(this.buttonSaveXML);
             this.Controls.Add(this.listViewBooks);
             this.Name = "MainView";
             this.Size = new System.Drawing.Size(685, 235);
             this.Load += new System.EventHandler(this.MainView_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -130,9 +144,10 @@
         private System.Windows.Forms.ColumnHeader columnYear;
         private System.Windows.Forms.ColumnHeader columnAuthor;
         private System.Windows.Forms.ColumnHeader columnPublisher;
-        private System.Windows.Forms.Button buttonSaveXML;
         private System.Windows.Forms.Button buttonAddBook;
         private System.Windows.Forms.Button buttonDeleteBook;
         private System.Windows.Forms.ColumnHeader columnID;
+        private System.Windows.Forms.ComboBox comboBoxSearch;
+        private System.Windows.Forms.TextBox textBoxSearchBar;
     }
 }
