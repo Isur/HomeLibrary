@@ -34,22 +34,62 @@ namespace HomeLibrary.Models
         }
         public List<Book> SearchByTitle(string title)
         {
-            throw new NotImplementedException();
+            var find = new List<Book>();
+            
+            foreach(var book in Books)
+            {                
+                if (book.Title.ToLower().Contains(title.ToLower()))
+                {
+                    find.Add(book);                    
+                }
+            }
+
+            return find;
         }
 
         public List<Book> SearchByAuthor(string authorLastName)
         {
-            throw new NotImplementedException();
+            var find = new List<Book>();
+
+            foreach (var book in Books)
+            {
+                if (book.Author.ToStringName().ToLower().Contains(authorLastName.ToLower()))
+                {
+                    find.Add(book);
+                }
+            }
+
+            return find;
         }
 
         public List<Book> SearchByYear(int year)
         {
-            throw new NotImplementedException();
+            var find = new List<Book>();
+
+            foreach (var book in Books)
+            {
+                if (book.Year == year)
+                {
+                    find.Add(book);
+                }
+            }
+
+            return find;
         }
 
         public List<Book> SearchByPublisher(string publisher)
         {
-            throw new NotImplementedException();
+            var find = new List<Book>();
+
+            foreach (var book in Books)
+            {
+                if (book.Publisher.ToLower().Contains(publisher.ToLower()))
+                {
+                    find.Add(book);
+                }
+            }
+
+            return find;
         }
 
         public List<Book> GetBooks()
@@ -61,6 +101,25 @@ namespace HomeLibrary.Models
         {
             BooksToXML.Serialize(this);
             return true;
+        }
+
+        public bool ModifyBook(uint id, string title, string publisher, int year, string authorFirstName, string authorLastName, string authorFrom)
+        {
+            try
+            {
+                var t = Books.Find(x => x.Id == id);
+                t.Title = title;
+                t.Publisher = publisher;
+                t.Year = year;
+                t.Author.FirstName = authorFirstName;
+                t.Author.LastName = authorLastName;
+                t.Author.From = authorFrom;
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
 

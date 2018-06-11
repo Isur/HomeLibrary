@@ -23,7 +23,11 @@ namespace HomeLibrary.Models
         public Author() { }
         override public string ToString()
         {
-            return string.Format("{0} {1} from  {2}", FirstName, LastName, From);
+            return string.Format("{0} {1} -- {2}", FirstName, LastName, From);
+        }
+        public string ToStringName()
+        {
+            return string.Format("{0} {1}", FirstName, LastName);
         }
     }
 }

@@ -61,5 +61,12 @@ namespace HomeLibrary.Views
             showView(view);
             centerActualView();
         }
+        public void ShowModifyView(Book book)
+        {
+            var view = new ModifyBook(this, book);
+            var presenter = new ModifyBookPresenter(model, view);
+            showView(view);
+            centerActualView();
+        }
     }
 }

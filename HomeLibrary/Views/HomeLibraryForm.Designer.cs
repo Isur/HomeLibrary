@@ -34,9 +34,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(852, 298);
+            this.ClientSize = new System.Drawing.Size(854, 301);
+            this.MaximumSize = new System.Drawing.Size(870, 340);
+            this.MinimumSize = new System.Drawing.Size(870, 340);
             this.Name = "HomeLibraryForm";
-            this.Text = "HomeLibraryForm";
+            this.Text = "Domowa Biblioteka";
             this.Load += new System.EventHandler(this.HomeLibraryForm_Load);
             this.Resize += new System.EventHandler(this.HomeLibraryForm_Resize);
             this.ResumeLayout(false);

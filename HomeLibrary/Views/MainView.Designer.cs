@@ -38,6 +38,7 @@
             this.buttonDeleteBook = new System.Windows.Forms.Button();
             this.comboBoxSearch = new System.Windows.Forms.ComboBox();
             this.textBoxSearchBar = new System.Windows.Forms.TextBox();
+            this.buttonModify = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listViewBooks
@@ -48,9 +49,11 @@
             this.columnYear,
             this.columnAuthor,
             this.columnPublisher});
-            this.listViewBooks.Location = new System.Drawing.Point(3, 3);
+            this.listViewBooks.FullRowSelect = true;
+            this.listViewBooks.GridLines = true;
+            this.listViewBooks.Location = new System.Drawing.Point(0, 0);
             this.listViewBooks.Name = "listViewBooks";
-            this.listViewBooks.Size = new System.Drawing.Size(679, 191);
+            this.listViewBooks.Size = new System.Drawing.Size(685, 193);
             this.listViewBooks.TabIndex = 0;
             this.listViewBooks.UseCompatibleStateImageBehavior = false;
             this.listViewBooks.View = System.Windows.Forms.View.Details;
@@ -81,7 +84,7 @@
             // 
             // buttonAddBook
             // 
-            this.buttonAddBook.Location = new System.Drawing.Point(3, 199);
+            this.buttonAddBook.Location = new System.Drawing.Point(3, 209);
             this.buttonAddBook.Name = "buttonAddBook";
             this.buttonAddBook.Size = new System.Drawing.Size(75, 23);
             this.buttonAddBook.TabIndex = 2;
@@ -91,7 +94,7 @@
             // 
             // buttonDeleteBook
             // 
-            this.buttonDeleteBook.Location = new System.Drawing.Point(84, 200);
+            this.buttonDeleteBook.Location = new System.Drawing.Point(84, 209);
             this.buttonDeleteBook.Name = "buttonDeleteBook";
             this.buttonDeleteBook.Size = new System.Drawing.Size(75, 23);
             this.buttonDeleteBook.TabIndex = 3;
@@ -107,23 +110,35 @@
             "po tytule",
             "po roku",
             "po wydawcy"});
-            this.comboBoxSearch.Location = new System.Drawing.Point(575, 202);
+            this.comboBoxSearch.Location = new System.Drawing.Point(575, 209);
             this.comboBoxSearch.Name = "comboBoxSearch";
             this.comboBoxSearch.Size = new System.Drawing.Size(107, 21);
             this.comboBoxSearch.TabIndex = 4;
+            this.comboBoxSearch.SelectedIndexChanged += new System.EventHandler(this.comboBoxSearch_SelectedIndexChanged);
             // 
             // textBoxSearchBar
             // 
-            this.textBoxSearchBar.Location = new System.Drawing.Point(250, 203);
+            this.textBoxSearchBar.Location = new System.Drawing.Point(250, 211);
             this.textBoxSearchBar.Name = "textBoxSearchBar";
             this.textBoxSearchBar.Size = new System.Drawing.Size(319, 20);
             this.textBoxSearchBar.TabIndex = 5;
             this.textBoxSearchBar.TextChanged += new System.EventHandler(this.textBoxSearchBar_TextChanged);
             // 
+            // buttonModify
+            // 
+            this.buttonModify.Location = new System.Drawing.Point(165, 209);
+            this.buttonModify.Name = "buttonModify";
+            this.buttonModify.Size = new System.Drawing.Size(75, 23);
+            this.buttonModify.TabIndex = 6;
+            this.buttonModify.Text = "Modyfikuj";
+            this.buttonModify.UseVisualStyleBackColor = true;
+            this.buttonModify.Click += new System.EventHandler(this.buttonModify_Click);
+            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.buttonModify);
             this.Controls.Add(this.textBoxSearchBar);
             this.Controls.Add(this.comboBoxSearch);
             this.Controls.Add(this.buttonDeleteBook);
@@ -149,5 +164,6 @@
         private System.Windows.Forms.ColumnHeader columnID;
         private System.Windows.Forms.ComboBox comboBoxSearch;
         private System.Windows.Forms.TextBox textBoxSearchBar;
+        private System.Windows.Forms.Button buttonModify;
     }
 }

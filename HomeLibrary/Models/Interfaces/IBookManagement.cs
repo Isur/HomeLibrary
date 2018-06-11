@@ -13,10 +13,6 @@ namespace HomeLibrary.Models.Interfaces
         bool DeleteBook(uint id);
         List<Book> GetBooks();
         bool Save();
-        /* TO DO
-         * 
-         * ADD MODIFY OPTION
-         * 
-         *  */ 
+        bool ModifyBook(uint id, string title, string publisher, int year, string authorFirstName, string authorLastName, string authorFrom);
     }
 }
